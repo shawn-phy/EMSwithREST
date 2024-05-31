@@ -23,14 +23,11 @@ namespace EMSwithREST
         // Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options => options.EnableEndpointRouting = false);
-          
-            //Because we need singleton to implement dependecy injection 
-            //services.AddTransient<IUserDataProvider, UserDataProvider>();
+            // Remove this line
+            // services.AddMvc(options => options.EnableEndpointRouting = false);
+
             services.AddControllers();
             services.AddSingleton<IEventDataProvider, EventDataProvider>();
-
-            //experimenting with swagger ;p
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EventManagement API", Version = "v1" });
@@ -42,12 +39,11 @@ namespace EMSwithREST
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             //more swagger stuff
-            if (env.IsDevelopment())
-            {
+         
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EventManagement API v1"));
-            }
+      
 
             app.UseRouting();
             app.UseAuthorization();
