@@ -11,7 +11,7 @@ namespace EMSwithREST.Controllers
     [Route("[controller]")]
     public class EventController : Controller
     {
-        private readonly IEventDataProvider eventDataProvider;//why readonly 
+        private readonly IEventDataProvider eventDataProvider;
 
         public EventController(IEventDataProvider eventDataProvider)
         {

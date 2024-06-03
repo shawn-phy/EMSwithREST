@@ -11,7 +11,7 @@ namespace EMSwithREST.DataProvider
 {
     public class EventDataProvider : IEventDataProvider
     {
-        private readonly string connectionString = "Data Source=localhost,1433;Initial Catalog=Events;Persist Security Info=True;User ID=sa;Password=***********;Trust Server Certificate=True";
+        private readonly string connectionString = "Data Source=localhost,1433;Initial Catalog=Events;Persist Security Info=True;User ID=sa;Password=Password_123#;";//Server=localhost,1433;Database=Events;;
 
         private SqlConnection sqlConnection;
 
