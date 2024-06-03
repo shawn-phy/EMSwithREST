@@ -81,7 +81,7 @@ namespace EMSwithREST.DataProvider
             {
                 await sqlConnection.OpenAsync();
                 var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@EventID", evt.EventID);
+                dynamicParameters.Add("@EventID", evt.EventIdentifier);
                 dynamicParameters.Add("@EventName", evt.EventName);
                 dynamicParameters.Add("@EventDate", evt.EventDate);
                 dynamicParameters.Add("@EventTime", evt.EventTime);
